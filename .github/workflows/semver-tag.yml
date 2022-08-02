@@ -25,9 +25,9 @@ jobs:
           increment: ${{ steps.label.outputs.matchedLabels }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           default_to_highest: ${{ github.base_ref == 'main' }}
-       
+
       - name: Tag Repository
-        uses: UKHomeOffice/semver-tag-action@v2
+        uses: UKHomeOffice/semver-tag-action@v3
         with:
           tag: ${{ steps.calculate.outputs.version }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
