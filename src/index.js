@@ -61,8 +61,8 @@ async function generateSemverTag(token, increment, defaultToGreatest) {
   }
 
   if (!currentTag) {
-    core.setFailed("No usable tag found on repository.");
-    return;
+    core.warning("No usable tag found on repository.");
+    return calculateNewTag("0.0.0", increment);
   }
 
   const newTag = calculateNewTag(currentTag.semver, increment);
