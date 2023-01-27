@@ -11,7 +11,7 @@ updates:
     reviewers:
       - "UKHomeOffice/sas-github-workflow"
     labels:
-      - "skip-release"
+      - "patch"
       - "dependencies"
   - package-ecosystem: "npm"
     directory: "/"
