@@ -11,7 +11,7 @@ updates:
     reviewers:
       - "UKHomeOffice/hocs-core"
     labels:
-      - "skip-release"
+      - "patch"
       - "dependencies"
   - package-ecosystem: "npm"
     directory: "/"
