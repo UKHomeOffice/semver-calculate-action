@@ -5,6 +5,4 @@ on:
 
 jobs:
   test:
-    uses: UKHomeOffice/sas-github-workflows/.github/workflows/test-npm.yml@v2
-    with:
-      node-version-matrix: '[ "18.x", "19.x" ]'
+    uses: UKHomeOffice/sas-github-workflows/.github/workflows/test-npm.yml@v1
