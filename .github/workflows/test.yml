@@ -7,4 +7,4 @@ jobs:
   test:
     uses: UKHomeOffice/sas-github-workflows/.github/workflows/test-npm.yml@v1
     with:
-      node-version-matrix: '[ "18.x", "v19.3.0" ]'
+      nodeVersionMatrix: '[ "18.x", "v19.3.0" ]'
