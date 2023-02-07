@@ -3,9 +3,14 @@ const {
   isValidSemverIncrement,
   sortTags,
 } = require("../src/semver");
+const core = require("@actions/core");
+
+jest.mock("@actions/core");
 
 describe("calculateNewTag", () => {
   test("should increment correctly", () => {
+    core.setFailed = jest.fn(() => {});
+
     expect(calculateNewTag("1.0.0", "pre")).toEqual("1.0.0-0");
     expect(calculateNewTag("1.0.0", "premajor")).toEqual("2.0.0-0");
     expect(calculateNewTag("1.0.0", "preminor")).toEqual("1.1.0-0");
@@ -14,18 +19,28 @@ describe("calculateNewTag", () => {
     expect(calculateNewTag("1.0.0", "major")).toEqual("2.0.0");
     expect(calculateNewTag("1.0.0", "minor")).toEqual("1.1.0");
     expect(calculateNewTag("1.0.0", "patch")).toEqual("1.0.1");
+
+    core.setFailed.mockRestore();
   });
 
   test("should return undefined if increment not valid", () => {
+    core.setFailed = jest.fn(() => {});
+
     expect(calculateNewTag("1.0.0", undefined)).toEqual(undefined);
     expect(calculateNewTag("1.0.0", null)).toEqual(undefined);
     expect(calculateNewTag("1.0.0", "TEST")).toEqual(undefined);
+
+    core.setFailed.mockRestore();
   });
 
   test("should return undefined if initial tag not valid", () => {
+    core.setFailed = jest.fn(() => {});
+
     expect(calculateNewTag(undefined, "patch")).toEqual(undefined);
     expect(calculateNewTag(null, "patch")).toEqual(undefined);
     expect(calculateNewTag("TEST", "patch")).toEqual(undefined);
+
+    core.setFailed.mockRestore();
   });
 });
 
