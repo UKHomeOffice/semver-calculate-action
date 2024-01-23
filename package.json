@@ -2,6 +2,9 @@
   "name": "semver-calculate-action",
   "version": "1.0.0",
   "description": "Calculate the next semantic version",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "lint": "eslint",
     "test": "jest",
